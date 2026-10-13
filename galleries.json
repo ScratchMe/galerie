@@ -1,0 +1,26 @@
+{
+  "site": {
+    "title": "Antoine Berthaud — Photos",
+    "name": "Antoine Berthaud",
+    "domain": "antoine.berthaud.me",
+    "intro": "Product Manager à Nantes, je partage aussi mes voyages photographiques : des villes, de l’architecture et quelques couchers de soleil.",
+    "linkedin": "https://www.linkedin.com/in/antoine-berthaud-pm/",
+    "cv": "https://cv.antoine.berthaud.me/",
+    "portfolioSource": "https://antoine.berthaud.me"
+  },
+  "galleries": [
+    { "slug": "rome", "title": "Rome", "year": 2021 },
+    { "slug": "sintra", "title": "Sintra", "year": 2021 },
+    { "slug": "lisbonne", "title": "Lisbonne", "year": 2021 },
+    { "slug": "bretagne-2021", "title": "Bretagne", "year": 2021 },
+    { "slug": "nantes-2021", "title": "Nantes en 2021", "year": 2021 },
+    { "slug": "nantes-2020", "title": "Nantes en 2020", "year": 2020 },
+    { "slug": "londres", "title": "Londres", "year": 2020 },
+    { "slug": "allemagne", "title": "Allemagne", "year": 2019 },
+    { "slug": "saint-jean-de-monts", "title": "Saint-Jean-de-Monts", "year": 2021 },
+    { "slug": "clisson", "title": "Clisson", "year": 2021 },
+    { "slug": "pornic", "title": "Pornic", "year": 2021 },
+    { "slug": "chateaux-de-la-loire", "title": "Châteaux de la Loire", "year": 2020 },
+    { "slug": "tours", "title": "Tours", "year": 2021 }
+  ]
+}

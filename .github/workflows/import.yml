@@ -1,0 +1,30 @@
+name: Importer depuis Adobe Portfolio
+on:
+  workflow_dispatch:
+    inputs:
+      portfolio_url:
+        description: "Adresse de la galerie Adobe Portfolio"
+        default: "https://antoine.berthaud.me"
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node scripts/import-portfolio.mjs
+        env:
+          PORTFOLIO_URL: ${{ inputs.portfolio_url }}
+      - name: Enregistrer les photos
+        run: |
+          git config user.name "Claude (pour Antoine)"
+          git config user.email "478204+ScratchMe@users.noreply.github.com"
+          git add photos
+          git diff --cached --quiet && echo "Rien de nouveau" && exit 0
+          git commit -m "Import des photos depuis Adobe Portfolio"
+          git push

@@ -1,0 +1,13 @@
+{
+  "name": "galerie",
+  "description": "Galerie photo d’Antoine Berthaud",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "import": "node scripts/import-portfolio.mjs"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  },
+  "private": true,
+  "type": "module"
+}
