@@ -1,0 +1,75 @@
+/* Galerie d'Antoine — calme, papier chaud, la photo d'abord. */
+:root{
+  --bg:#f4f2ec; --paper:#fbfaf6; --ink:#1d221f; --muted:#666e68; --line:#dedad0; --accent:#2f5a46;
+  --serif:"Literata",Georgia,serif; --sans:"Inter",system-ui,-apple-system,sans-serif;
+  --gap:6px; --row:280px; color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#111311; --paper:#181b19; --ink:#e9e6dd; --muted:#9aa29c; --line:#2a2f2b; --accent:#8fc2a6; color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:22px clamp(16px,4vw,48px)}
+.brand{font:500 1.15rem/1 var(--serif);text-decoration:none;letter-spacing:-.01em}
+.brand span{font:400 .78rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-left:10px}
+.top nav{display:flex;gap:22px}
+.top nav a,.foot a{text-decoration:none;color:var(--muted);font-size:.92rem}
+.top nav a:hover,.foot a:hover{color:var(--ink)}
+
+.hero{padding:clamp(28px,7vw,88px) clamp(16px,4vw,48px) clamp(28px,5vw,56px);max-width:62rem}
+.hero h1,.intro h1,.page h1{font:500 clamp(2rem,5.2vw,3.6rem)/1.08 var(--serif);letter-spacing:-.02em;margin:0 0 16px;text-wrap:balance}
+.hero p{color:var(--muted);max-width:44ch;margin:0;font-size:1.05rem;text-wrap:pretty}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:clamp(18px,2.4vw,32px) clamp(14px,2vw,24px);padding:0 clamp(16px,4vw,48px) 72px}
+.card{text-decoration:none;display:grid;gap:4px}
+.card img{aspect-ratio:4/3;object-fit:cover;width:100%;background:var(--line);border-radius:3px;transition:opacity .25s}
+.card:hover img{opacity:.88}
+.card-t{font:500 1.22rem/1.25 var(--serif);margin-top:10px}
+.card-m{font-size:.86rem;color:var(--muted);font-variant-numeric:tabular-nums}
+
+.intro{padding:clamp(24px,5vw,64px) clamp(16px,4vw,48px) 28px}
+.kicker{margin:0 0 10px;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.kicker a{text-decoration:none}
+.kicker a:hover{color:var(--ink)}
+.count{margin:0;color:var(--muted)}
+
+/* Rangées justifiées : chaque photo garde ses proportions, la dernière rangée ne s'étire pas. */
+.justified{display:flex;flex-wrap:wrap;gap:var(--gap);padding:0 clamp(16px,4vw,48px)}
+.justified::after{content:"";flex-grow:999999}
+.ph{flex:calc(var(--r) * 100) 1 calc(var(--r) * var(--row));position:relative;overflow:hidden;background:var(--line);cursor:zoom-in}
+.ph img{width:100%;height:100%;object-fit:cover;aspect-ratio:var(--r);transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .3s}
+.ph:hover img{transform:scale(1.015)}
+@media (max-width:700px){:root{--row:200px;--gap:4px}}
+
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:56px clamp(16px,4vw,48px) 24px}
+.pager a{text-decoration:none;font:500 1.15rem/1.3 var(--serif);display:grid;gap:4px;padding-top:16px;border-top:1px solid var(--line)}
+.pager a:last-child{text-align:right}
+.pager span{font:400 .78rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+.page{padding:clamp(32px,7vw,96px) clamp(16px,4vw,48px);max-width:46rem}
+.page p{color:var(--muted);font-size:1.05rem}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-block;padding:11px 18px;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:500;font-size:.95rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;padding:28px clamp(16px,4vw,48px) 40px;border-top:1px solid var(--line);margin-top:32px;color:var(--muted);font-size:.86rem}
+.foot p{margin:0;display:flex;gap:18px;flex-wrap:wrap}
+
+/* Visionneuse */
+.lb{width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#0b0c0b;color:#e9e6dd}
+.lb::backdrop{background:#0b0c0b}
+.lb figure{margin:0;height:100%;display:grid;place-items:center;padding:56px 64px 48px}
+.lb img{max-width:100%;max-height:calc(100dvh - 104px);width:auto;height:auto;object-fit:contain;touch-action:pan-y}
+.lb figcaption{position:fixed;left:0;right:0;bottom:16px;text-align:center;font-size:.85rem;color:#9aa29c;font-variant-numeric:tabular-nums}
+.lb button{position:fixed;background:none;border:0;color:#e9e6dd;font:300 2.4rem/1 var(--sans);cursor:pointer;padding:12px 16px;opacity:.7}
+.lb button:hover{opacity:1}
+.lb-close{top:8px;right:12px}
+.lb-prev{left:6px;top:50%;transform:translateY(-50%)}
+.lb-next{right:6px;top:50%;transform:translateY(-50%)}
+@media (max-width:700px){.lb figure{padding:48px 0 44px}.lb-prev,.lb-next{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:520px){.brand span{display:none}.top nav{gap:16px}}
