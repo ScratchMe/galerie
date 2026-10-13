@@ -2,7 +2,7 @@
 :root{
   --bg:#f4f2ec; --paper:#fbfaf6; --ink:#1d221f; --muted:#666e68; --line:#dedad0; --accent:#2f5a46;
   --serif:"Literata",Georgia,serif; --sans:"Inter",system-ui,-apple-system,sans-serif;
-  --gap:6px; --row:300px; color-scheme:light;
+  --gap:6px; --row:280px; color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root{
   --bg:#111311; --paper:#181b19; --ink:#e9e6dd; --muted:#9aa29c; --line:#2a2f2b; --accent:#8fc2a6; color-scheme:dark}}

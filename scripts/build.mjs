@@ -8,7 +8,8 @@ const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..")
 const out = path.join(root, "_site");
 const config = JSON.parse(await fs.readFile(path.join(root, "galleries.json"), "utf8"));
 const { site } = config;
-const WIDTHS = [720, 1440, 2400];
+const WIDTHS = [720, 1440, 1920];
+const CONCURRENCY = Math.max(2, (await import("node:os")).cpus().length);
 
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
@@ -29,17 +30,27 @@ async function renderImage(slug, file, index) {
   const dir = path.join(out, slug, "img");
   await fs.mkdir(dir, { recursive: true });
   const id = String(index + 1).padStart(3, "0");
-  const variants = [];
-  for (const width of WIDTHS) {
-    const real = Math.min(width, w);
+  const sizes = [...new Set(WIDTHS.map((width) => Math.min(width, w)))];
+  const variants = await Promise.all(sizes.map(async (width) => {
     const name = `${id}-${width}.webp`;
-    await sharp(src).rotate().resize({ width: real, withoutEnlargement: true }).webp({ quality: width === 720 ? 74 : 80 }).toFile(path.join(dir, name));
-    variants.push({ width: real, url: `/${slug}/img/${name}` });
-    if (real === w) break;
+    await base.clone().resize({ width, withoutEnlargement: true }).webp({ quality: width <= 720 ? 74 : 80 }).toFile(path.join(dir, name));
+    return { width, url: `/${slug}/img/${name}` };
+  }));
+  let jpeg = null;
+  if (index === 0) {
+    jpeg = `/${slug}/img/${id}.jpg`;
+    await base.clone().resize({ width: Math.min(1200, w), withoutEnlargement: true }).jpeg({ quality: 80, mozjpeg: true }).toFile(path.join(out, jpeg));
   }
-  const jpeg = `${id}.jpg`;
-  await sharp(src).rotate().resize({ width: Math.min(1600, w), withoutEnlargement: true }).jpeg({ quality: 82, mozjpeg: true }).toFile(path.join(dir, jpeg));
-  return { w, h, ratio: w / h, variants, jpeg: `/${slug}/img/${jpeg}` };
+  return { w, h, ratio: w / h, variants, jpeg };
+}
+
+async function mapLimit(items, limit, fn) {
+  const results = new Array(items.length);
+  let next = 0;
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (next < items.length) { const i = next++; results[i] = await fn(items[i], i); }
+  }));
+  return results;
 }
 
 const srcset = (img) => img.variants.map((v) => `${v.url} ${v.width}w`).join(", ");
@@ -88,12 +99,12 @@ await fs.mkdir(path.join(out, "assets"), { recursive: true });
 for (const f of await fs.readdir(path.join(root, "assets"))) await fs.copyFile(path.join(root, "assets", f), path.join(out, "assets", f));
 
 const built = [];
-for (const g of config.galleries) {
+const only = process.env.ONLY?.split(",");
+for (const g of config.galleries.filter((x) => !only || only.includes(x.slug))) {
   const files = await listPhotos(g.slug);
   if (!files.length) { console.warn(`· ${g.slug}: aucune photo, galerie ignorée`); continue; }
-  const images = [];
-  for (const [i, f] of files.entries()) images.push(await renderImage(g.slug, f, i));
-  built.push({ ...g, images, cover: images[Math.min((g.cover || 1) - 1, images.length - 1)] });
+  const images = await mapLimit(files, CONCURRENCY, (f, i) => renderImage(g.slug, f, i));
+  built.push({ ...g, images, cover: images[0] });
   console.log(`✓ ${g.slug}: ${images.length}`);
 }
 
