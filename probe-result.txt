@@ -1,5 +1,0 @@
-page directe: 403 0 octets, 0 urls cdn, type null
-jina html: 200 191157 octets, 746 urls cdn, type text/plain; charset=utf-8
-jina markdown: 200 16644 octets, 93 urls cdn, type text/plain; charset=utf-8
-cdn direct: 200 1179351 octets, 0 urls cdn, type image/jpeg
-wsrv: 404 79 octets, 0 urls cdn, type application/json

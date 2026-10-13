@@ -55,7 +55,9 @@ for (const gallery of config.galleries) {
   const pageUrl = `${source.replace(/\/$/, "")}/${gallery.slug}`;
   let html = "";
   try {
-    const res = await fetch(pageUrl, { headers: HEADERS, redirect: "follow" });
+    // Adobe refuse les serveurs de GitHub ; on passe par un lecteur web public qui affiche la page comme un navigateur.
+    const res = await fetch(`https://r.jina.ai/${pageUrl}`, { headers: { ...HEADERS, "x-return-format": "html" } });
+    await new Promise((r) => setTimeout(r, 4000));
     html = await res.text();
     log(`${gallery.slug}: HTTP ${res.status}, ${html.length} octets, url finale ${res.url}`);
   } catch (e) { log(`✗ ${gallery.slug}: ${e.message}`); continue; }
