@@ -11,8 +11,8 @@ jobs:
   import:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -21,10 +21,11 @@ jobs:
         env:
           PORTFOLIO_URL: ${{ inputs.portfolio_url }}
       - name: Enregistrer les photos
+        if: always()
         run: |
           git config user.name "Claude (pour Antoine)"
           git config user.email "478204+ScratchMe@users.noreply.github.com"
-          git add photos
+          git add photos import-debug
           git diff --cached --quiet && echo "Rien de nouveau" && exit 0
           git commit -m "Import des photos depuis Adobe Portfolio"
           git push
