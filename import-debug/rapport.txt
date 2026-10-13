@@ -1,0 +1,40 @@
+rome: HTTP 200, 198624 octets, url finale https://r.jina.ai/https://antoine.berthaud.me/rome
+  83 photos trouvées (ex. https://cdn.myportfolio.com/54708f55-4c39-484e-a46a-cde20763c554/ca7a7725-a0db-4a65-8046-4386d69f7627_rw_1920.jpg?h=f5b7c91cb7994d65d3b7e62ec7852d7c)
+✓ rome: 83 photos enregistrées
+sintra: HTTP 200, 70397 octets, url finale https://r.jina.ai/https://antoine.berthaud.me/sintra
+  20 photos trouvées (ex. https://cdn.myportfolio.com/54708f55-4c39-484e-a46a-cde20763c554/1021542b-276d-40f5-8f84-5f8cd2175c0f_rw_1920.jpg?h=f9e52a3ac8a8922027817867a9df4a10)
+✓ sintra: 20 photos enregistrées
+lisbonne: HTTP 200, 108634 octets, url finale https://r.jina.ai/https://antoine.berthaud.me/lisbonne
+  40 photos trouvées (ex. https://cdn.myportfolio.com/54708f55-4c39-484e-a46a-cde20763c554/0f7cafbc-3c48-4beb-afa5-3897f6eef75d_rw_1920.jpg?h=adc632c534ac19a038b1b7295e4fda23)
+✓ lisbonne: 40 photos enregistrées
+bretagne-2021: HTTP 200, 183419 octets, url finale https://r.jina.ai/https://antoine.berthaud.me/bretagne-2021
+  79 photos trouvées (ex. https://cdn.myportfolio.com/54708f55-4c39-484e-a46a-cde20763c554/f8ed24c4-f429-4da8-9310-65874c533d78_rw_1920.jpg?h=393fdefc653029bb70f50352c5d7a184)
+✓ bretagne-2021: 79 photos enregistrées
+nantes-2021: HTTP 200, 108294 octets, url finale https://r.jina.ai/https://antoine.berthaud.me/nantes-2021
+  40 photos trouvées (ex. https://cdn.myportfolio.com/54708f55-4c39-484e-a46a-cde20763c554/bee2854c-3e39-4d9d-a6de-ab37542b72b1_rw_1920.jpg?h=7a460d4133209f89be2102ccc8d9c415)
+✓ nantes-2021: 40 photos enregistrées
+nantes-2020: HTTP 200, 356518 octets, url finale https://r.jina.ai/https://antoine.berthaud.me/nantes-2020
+  170 photos trouvées (ex. https://cdn.myportfolio.com/54708f55-4c39-484e-a46a-cde20763c554/8002ecba-6f42-4c6b-a63a-8ee1768c4106_rw_1920.jpg?h=665367bd358595938878750026d61ca3)
+✓ nantes-2020: 170 photos enregistrées
+londres: HTTP 200, 123879 octets, url finale https://r.jina.ai/https://antoine.berthaud.me/londres
+  48 photos trouvées (ex. https://cdn.myportfolio.com/54708f55-4c39-484e-a46a-cde20763c554/522bff7c-c453-410e-aee3-659b323268b7_rw_1920.jpg?h=5c1099480e83a78be67388ce4e8e2464)
+✓ londres: 48 photos enregistrées
+allemagne: HTTP 200, 101579 octets, url finale https://r.jina.ai/https://antoine.berthaud.me/allemagne
+  32 photos trouvées (ex. https://cdn.myportfolio.com/54708f55-4c39-484e-a46a-cde20763c554/f3f5db27-994c-43bd-b152-abb316028853_rw_3840.jpg?h=68831f8e2c2a57f452fca7153bbcccaa)
+✓ allemagne: 32 photos enregistrées
+saint-jean-de-monts: HTTP 200, 81447 octets, url finale https://r.jina.ai/https://antoine.berthaud.me/saint-jean-de-monts
+  26 photos trouvées (ex. https://cdn.myportfolio.com/54708f55-4c39-484e-a46a-cde20763c554/db42d992-0541-43c7-b861-36e50bd993db_rw_1920.jpg?h=d804b9592cd685a4ffc007e6bd870d72)
+✓ saint-jean-de-monts: 26 photos enregistrées
+clisson: HTTP 200, 75877 octets, url finale https://r.jina.ai/https://antoine.berthaud.me/clisson
+  23 photos trouvées (ex. https://cdn.myportfolio.com/54708f55-4c39-484e-a46a-cde20763c554/ebd36b0d-32b2-4d45-92da-746847e8077d_rw_1920.jpg?h=d891f54aefcea7cab5a0d8070ac8776c)
+✓ clisson: 23 photos enregistrées
+pornic: HTTP 200, 77940 octets, url finale https://r.jina.ai/https://antoine.berthaud.me/pornic
+  24 photos trouvées (ex. https://cdn.myportfolio.com/54708f55-4c39-484e-a46a-cde20763c554/2dde4852-c012-413e-87a9-f4132331bf1e_rw_1920.jpg?h=7c1edfea17686a1cae653f37eb9422a7)
+✓ pornic: 24 photos enregistrées
+chateaux-de-la-loire: HTTP 200, 83437 octets, url finale https://r.jina.ai/https://antoine.berthaud.me/chateaux-de-la-loire
+  27 photos trouvées (ex. https://cdn.myportfolio.com/54708f55-4c39-484e-a46a-cde20763c554/9afb4632-6996-4126-a848-f15d40ea5735_rw_1920.jpg?h=57271b0046bcdd50c5134b12fa28cdb6)
+✓ chateaux-de-la-loire: 27 photos enregistrées
+tours: HTTP 200, 43538 octets, url finale https://r.jina.ai/https://antoine.berthaud.me/tours
+  6 photos trouvées (ex. https://cdn.myportfolio.com/54708f55-4c39-484e-a46a-cde20763c554/fbd6454d-9479-4c2f-99a1-b91f2cc95a3c_rw_1920.jpg?h=b4765e5b9b20163f3153ef875512103e)
+✓ tours: 6 photos enregistrées
+Total: 618 photos
